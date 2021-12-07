@@ -87,3 +87,106 @@ NaN // not a number
     // usually a type coercion error, e.g. Number('abc)
 null;
 undefined;// both mean nothing, but function with no return returns undefined
+
+'5' == 5;
+//double equals can reconcile between numbers and string numerals
+//BUT, this is part of the bad javascript!
+//So instead, resolve them manually, e.g. Number('5) === 5
+
+/* 
+== - coerce types, then compare
+!==     -  Not equals
+!=      - Not equals (coerce types)*/
+// '6' != 6 returns false
+// '6' !== 6 returns true
+
+/* Arrays and loops:
+An array is just a list of things (or a container for a list)
+*/
+let beverages = [
+    'coffee',
+    'zima',
+    'water', 
+    'raw sewage'
+];
+
+/*Kinds of loops:
+for// vanilla
+for of
+for in
+while
+*/
+
+for(let beverage of beverages) {
+    console.log(`I am drinking ${beverage}`);
+    // no explicit iterator; you will not be able to list numbers, 
+    // and items are often listed in a different order
+}
+
+for(let i=0; i< beverages.length; i++) {
+    let beverage = beverages[i];
+    console.log(`I am drinking ${beverage}`);
+}
+
+for(let i=beverage.length; i > 0; i--) {
+    let beverage = beverages[i];
+    console.log(`I am drinking ${beverage}`);
+}
+
+for (let i in beverages) {
+    let beverage = beverages[i];
+    console.log(`I am drinking ${beverage}`);
+}
+
+let forecast;
+while (forecast.windspeed < 50) {
+    let forecast = goAskTheWeatherService();
+}
+sendMessageToStopCranes();
+
+let isGameRunning = true;
+while(isGameRunning) {
+    nextTick();
+}
+
+//$('#stopButton').on('click', function()) {
+  //  isGameRunning = false;
+//}
+
+/* 
+Functions:
+
+*/
+
+function generateSong (words, notes) {
+    let song = `
+    ${words} ${words} ${words}
+    ${notes} ${notes} ${notes}
+    
+    
+    `
+    return song;
+}
+
+generateSong('wordsies', 'notesies');
+
+// function declaration, this is hoisted
+function sum(n1, n2) {
+    return n1 + n2;
+}
+// create anonymous function, assign to variable called sum
+let sum = function(n1, n2) {
+    return n1 + n2;
+}
+
+console.log('n1 is ', n1);// this will fail, due to scope
+
+// these are what arrow functions are based on
+
+function callMeTwoTimes(fm) {  
+    fn();
+    fn();
+}
+
+// a function attached to a variable is called a 'method'
+// e.g. array.push(thing)
